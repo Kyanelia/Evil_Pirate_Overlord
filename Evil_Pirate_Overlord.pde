@@ -46,6 +46,7 @@ void draw() {
     }
   }
   level1.e1_move();
+  level1.collided();
   /*
   if(player.fired == true){
     player.canon.cdisplay();

@@ -25,12 +25,27 @@ class Level_1{
       }
     }
   }
-/*  
+  
   //test collisions
   void collided(){
-    for(
+    for(int i=0;i<cballs;i++){
+      for(int j=0;j<5; j++){
+        for(int k=0; k<4; k++){
+          if(player.canon[i].cxpos > enemies[j][k].expos
+             && player.canon[i].cxpos < enemies[j][k].expos+enemies[j][k].ew
+             && player.canon[i].cypos > enemies[j][k].eypos
+             && player.canon[i].cypos < enemies[j][k].eypos+enemies[j][k].eh
+             && enemies[j][k].isAlive){
+               enemies[j][k].isAlive = false;
+               player.canon[i].fired = false;
+               player.canon[i].cypos = -10;
+             }
+        }
+      }
+    }
+  }
   
- */ 
+ 
   void level1_screen(){
   // Title
   textAlign(CENTER, CENTER);

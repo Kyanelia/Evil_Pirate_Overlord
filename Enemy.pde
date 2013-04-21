@@ -2,8 +2,8 @@ class Enemy{
   float ec;
   float expos;
   float eypos;
-  float w = 20;
-  float h = 20;
+  float ew = 20;
+  float eh = 20;
   boolean isAlive;
   
   Enemy(float tempec, float tempex, float tempey, boolean alive){
@@ -14,9 +14,11 @@ class Enemy{
   }
   
   void edisplay(){
-    noStroke();
-    fill(ec);
-    rectMode(CENTER);
-    rect(expos, eypos, w, h);
+    if(isAlive){
+      noStroke();
+      fill(ec);
+      rectMode(CENTER);
+      rect(expos, eypos, ew, eh);
+    }
   }
 }
