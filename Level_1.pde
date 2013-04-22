@@ -46,6 +46,7 @@ class Level_1{
     }
   }
   
+  //check if any aliens are still alive
   boolean won1(){
     for(int i=0; i<5; i++){
       for(int j=0; j<4; j++){
@@ -55,6 +56,18 @@ class Level_1{
       }
     }
     return true;
+  }
+  
+  //check if lost 
+  boolean lost1(){
+    for(int i=0;i<5;i++){
+      for(int j=0;j<4;j++){
+        if(enemies[i][j].isAlive == true && enemies[i][j].eypos <=0){
+          return true;
+        }
+      }
+    }
+    return false;
   }
  
   void level1_screen(){
@@ -94,5 +107,21 @@ class Level_1{
     text("CLEARED", width/2, height/2);
    
   }
-    
+ 
+   void lostScreen1(){
+     // Title
+    textAlign(CENTER, CENTER);
+    textSize(48);
+    fill(#FF0000);
+    text("You Lost", width / 2, height / 4);
+
+     // Play button
+    fill(#FF0000);
+  //  stroke(#AAAA55);
+    rectMode(CENTER);
+    rect((float)playButtonX, (float)playButtonY, (float)playButtonWidth+40.0, (float)playButtonHeight, 10.0);
+    fill(0);
+    textSize(32);
+    text("Retry?", width / 2,  4*height / 5);
+  }   
 }

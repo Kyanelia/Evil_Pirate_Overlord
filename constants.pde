@@ -6,6 +6,7 @@ int playButtonX, playButtonY;
 boolean bStarted = false;
 boolean bLevel1 = false;
 boolean wonLevel1 = false;
+boolean lostLevel1 = false;
 
 boolean canonball = false;
 boolean moveRight = false;

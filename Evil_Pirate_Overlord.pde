@@ -23,7 +23,7 @@ void draw() {
     level1.level1_screen();
     return;
   }
-  if(!wonLevel1)
+  if(!wonLevel1&&!lostLevel1)
   {
     image(level1.back, 0, 0);
     level1.player.display();
@@ -38,9 +38,16 @@ void draw() {
     level1.e1_move();
     level1.collided();  
     wonLevel1 = level1.won1();
+    lostLevel1 = level1.lost1();
     return;
   }
-  level1.winScreen1();
+  if(wonLevel1) level1.winScreen1();
+  if(lostLevel1){
+    level1.lostScreen1();
+    wonLevel1 = false;
+    level1.player.setupCanons();
+    level1.e1_setup();
+  }
 }
 
 

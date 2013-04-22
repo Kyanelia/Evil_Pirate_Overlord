@@ -10,6 +10,11 @@ void mousePressed()
     bLevel1 = true;
     return;
   }
+  if(lostLevel1 && isMouseOverPlayButton())
+  {
+    lostLevel1 = false;
+    return;
+  }
 }
 
  void keyPressed(){
