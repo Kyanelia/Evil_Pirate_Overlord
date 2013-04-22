@@ -2,8 +2,8 @@ class Ship{
  color c;
  float xpos;
  float ypos;
- float w = 40;
- float h = 20;
+ float w = 60;
+ float h = 40;
  float right = 1;
  float left = 1; 
  Canon[] canon = new Canon[cballs];

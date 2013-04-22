@@ -64,5 +64,5 @@ boolean isMouseOverAgain()
   int hh = playButtonHeight / 2;
   // Returns true if mouse position is within the bounds of the button
   return mouseX >= playButtonX - hw && mouseX <= playButtonX + hw &&
-      mouseY >= playButtonY - hh && mouseY <= (3*(height/4)) + hh;
+      mouseY >= (3*(height/4)) - hh && mouseY <= (3*(height/4)) + hh;
 }

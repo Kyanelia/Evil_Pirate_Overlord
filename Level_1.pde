@@ -65,6 +65,13 @@ class Level_1{
         if(enemies[i][j].isAlive == true && enemies[i][j].eypos <=0){
           return true;
         }
+        if((player.xpos < (enemies[i][j].expos+enemies[i][j].ew)  
+             || (player.xpos+player.w) > enemies[i][j].expos)
+             && player.ypos+player.h > enemies[i][j].eypos
+             && enemies[i][j].isAlive)
+        {
+             return true;
+        }
       }
     }
     return false;
