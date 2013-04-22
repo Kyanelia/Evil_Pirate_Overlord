@@ -32,13 +32,13 @@ class Ship{
    
  
  void move() {
-     if((moveRight || (moveRight && canonball)) && xpos+w < width){
+     if((moveRight || (moveRight && canonball)) && xpos+w <= width){
        xpos+=right;
        right+=0.5;
        left = 1;
        ship = shipR;
      }
-     if((moveLeft || (moveLeft && canonball))  && xpos>0){
+     if((moveLeft || (moveLeft && canonball))  && xpos>=0){
        xpos-=left;
        left+=0.5;
        right=1;

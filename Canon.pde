@@ -20,7 +20,7 @@ class Canon{
   
   void firing(){
     if ((cypos <= height+csize)&&fired){
-      cypos+=2;
+      cypos+=4;
     }
     else{
       fired = false;
