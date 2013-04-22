@@ -13,16 +13,19 @@ void setup() {
 
 void draw() {
   background(0);
+  //welcome screen
   if(!bStarted)
   {
     showWelcomeScreen();
     return;
   }
+  //level 1 screen
   if(!bLevel1)
   {
     level1.level1_screen();
     return;
   }
+  //level 1
   if(!wonLevel1&&!lostLevel1)
   {
     image(level1.back, 0, 0);
@@ -38,16 +41,29 @@ void draw() {
     level1.e1_move();
     level1.collided();  
     wonLevel1 = level1.won1();
+    wonGame = wonLevel1;
     lostLevel1 = level1.lost1();
     return;
   }
-  if(wonLevel1) level1.winScreen1();
+  //winning level 1
+  if(wonLevel1&&!wonGame) {
+    
+ //   when more levels
+//    level1.winScreen1();
+  }
+  //losing level 1
   if(lostLevel1){
     level1.lostScreen1();
     wonLevel1 = false;
     level1.player.setupCanons();
     level1.e1_setup();
   }
+  
+  //winning game
+  if(wonGame){
+    showEndScreen();
+  }
+  
 }
 
 

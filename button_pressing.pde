@@ -15,6 +15,15 @@ void mousePressed()
     lostLevel1 = false;
     return;
   }
+  if(wonGame && isMouseOverAgain())
+  {
+    wonGame = false;
+    wonLevel1 = false;
+    bStarted = false;
+    bLevel1 = false;
+    level1.player.setupCanons();
+    level1.e1_setup();
+  }
 }
 
  void keyPressed(){

@@ -7,6 +7,7 @@ boolean bStarted = false;
 boolean bLevel1 = false;
 boolean wonLevel1 = false;
 boolean lostLevel1 = false;
+boolean wonGame = false;
 
 boolean canonball = false;
 boolean moveRight = false;
