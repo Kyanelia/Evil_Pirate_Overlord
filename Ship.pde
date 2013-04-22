@@ -6,11 +6,13 @@ class Ship{
  float h = 20;
  float right = 1;
  float left = 1; 
- Canon[] canon = new Canon[10];
+ Canon[] canon = new Canon[cballs];
  int canonsFired = 0;
  boolean fired = false;
- PImage ship = loadImage("pirate_ship_left.png");
-
+ PImage shipL = loadImage("pirate_left.png");
+ PImage shipR = loadImage("pirate_right.png");
+ PImage ship = shipL;
+ 
  
  Ship(color tempc, float tempx, float tempy){
    c = tempc;
@@ -24,10 +26,6 @@ class Ship{
    }
  }
  void display(){
-/*   stroke(0);
-   fill(c);
-   rectMode(CENTER);
-   rect(xpos, ypos, w, h);*/
    image(ship, xpos, ypos);
  }
 
@@ -38,13 +36,13 @@ class Ship{
        xpos+=right;
        right+=0.5;
        left = 1;
-       ship = loadImage("pirate_ship_right.png");
+       ship = shipR;
      }
      if((moveLeft || (moveLeft && canonball))  && xpos>0){
        xpos-=left;
        left+=0.5;
        right=1;
-       ship = loadImage("pirate_ship_left.png");
+       ship = shipL;
      }
      else {
      xpos = xpos;

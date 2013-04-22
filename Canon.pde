@@ -2,7 +2,7 @@ class Canon{
   color cc = color(0);
   float cxpos;
   float cypos;
-  float csize = 3;
+  float csize = 4;
   boolean fired;
 
   Canon(float tempcx, float tempcy, boolean tempf){
