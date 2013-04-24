@@ -7,6 +7,9 @@ boolean bStarted = false;
 boolean bLevel1 = false;
 boolean wonLevel1 = false;
 boolean lostLevel1 = false;
+boolean bLevel2 = false;
+boolean wonLevel2 = false;
+boolean lostLevel2 = false;
 boolean wonGame = false;
 
 boolean canonball = false;
@@ -22,4 +25,5 @@ int sizex = 600;
 int sizey = 500;
 
 Level_1 level1;
+Level_2 level2;
 

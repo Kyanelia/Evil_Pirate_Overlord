@@ -1,4 +1,3 @@
-
 void setup() {
   size(sizex,sizey);
   frameRate(60);
@@ -9,6 +8,9 @@ void setup() {
   level1 = new Level_1();
   level1.player.setupCanons();
   level1.e1_setup();
+  level2 = new Level_2();
+  level2.player.setupCanons();
+  level2.e2_setup();
 }
 
 void draw() {
@@ -26,7 +28,7 @@ void draw() {
     return;
   }
   //level 1
-  if(!wonLevel1&&!lostLevel1)
+  if(bLevel1&&!wonLevel1&&!lostLevel1)
   {
     image(level1.back, 0, 0);
     level1.player.display();
@@ -39,24 +41,58 @@ void draw() {
       }
     }
     level1.e1_move();
-    level1.collided();  
+    level1.collide1();  
     wonLevel1 = level1.won1();
-    wonGame = wonLevel1;
     lostLevel1 = level1.lost1();
     return;
   }
   //winning level 1
-  if(wonLevel1&&!wonGame) {
+  if(bLevel1 && wonLevel1&&!bLevel2) {
     
  //   when more levels
-//    level1.winScreen1();
+    level1.winScreen1();
+    return;
   }
   //losing level 1
-  if(lostLevel1){
+  if(bLevel1 && lostLevel1){
     level1.lostScreen1();
     wonLevel1 = false;
     level1.player.setupCanons();
     level1.e1_setup();
+  }
+
+  //level 2
+  if(bLevel2&&!wonLevel2&&!lostLevel2)
+  {
+    image(level1.back, 0, 0);
+    level2.player.display();
+    level2.player.move();
+    level2.player.fire();
+    for(int i=0;i<cballs;i++){
+      if(level2.player.canon[i].fired == true){
+        level2.player.canon[i].cdisplay();
+        level2.player.canon[i].firing();
+      }
+    }
+    level2.e2_move();
+    level2.collide2();  
+    wonLevel2 = level2.won2();
+    wonGame = wonLevel2;
+    lostLevel2 = level2.lost2();
+    return;
+  }
+  //winning level 1
+  if(wonLevel2&&!wonGame) {
+    
+ //   when more levels
+//    level2.winScreen1();
+  }
+  //losing level 1
+  if(lostLevel2){
+    level2.lostScreen2();
+    wonLevel2 = false;
+    level2.player.setupCanons();
+    level2.e2_setup();
   }
   
   //winning game

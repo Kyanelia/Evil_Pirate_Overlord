@@ -1,5 +1,4 @@
 class Ship{
- color c;
  float xpos;
  float ypos;
  float w = 60;
@@ -14,8 +13,7 @@ class Ship{
  PImage ship = shipL;
  
  
- Ship(color tempc, float tempx, float tempy){
-   c = tempc;
+ Ship(float tempx, float tempy){
    xpos = tempx;
    ypos = tempy;
  }

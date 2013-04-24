@@ -15,6 +15,22 @@ void mousePressed()
     lostLevel1 = false;
     return;
   }
+  if(wonLevel1 && isMouseOverPlayButton())
+  {
+    bLevel2 = true;
+    return;
+  }
+    if(lostLevel2 && isMouseOverPlayButton())
+  {
+    lostLevel2 = false;
+    return;
+  }
+/*  if(wonLevel2 && isMouseOverPlayButton())
+  {
+    bLevel1 = true;
+    bLevel2 = false;
+    return;
+  }*/
   if(wonGame && isMouseOverAgain())
   {
     wonGame = false;
@@ -23,6 +39,10 @@ void mousePressed()
     bLevel1 = false;
     level1.player.setupCanons();
     level1.e1_setup();
+    wonLevel2 = false;
+    bLevel2 = false;
+    level2.player.setupCanons();
+    level2.e2_setup();
   }
 }
 

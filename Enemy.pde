@@ -1,5 +1,4 @@
 class Enemy{
-  float ec;
   float expos;
   float eypos;
   float ew = 20;
@@ -7,8 +6,7 @@ class Enemy{
   boolean isAlive;
   PImage alien1 = loadImage("alien1.png");
   
-  Enemy(float tempec, float tempex, float tempey, boolean alive){
-    ec = tempec;
+  Enemy(float tempex, float tempey, boolean alive){
     expos = tempex;
     eypos = tempey;
     isAlive = alive;
@@ -16,9 +14,6 @@ class Enemy{
   
   void edisplay(){
     if(isAlive){
- /*     noStroke();
-      fill(ec);
-      rect(expos, eypos, ew, eh);*/
       image(alien1, expos, eypos);
     }
   }
