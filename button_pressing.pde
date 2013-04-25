@@ -20,7 +20,7 @@ void mousePressed()
     bLevel2 = true;
     return;
   }
-    if(lostLevel2 && isMouseOverPlayButton())
+    if(lostLevel2 && isMouseOverAgain())
   {
     lostLevel2 = false;
     return;

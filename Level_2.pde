@@ -42,7 +42,7 @@ class Level_2{
             troop1[i][j].eypos-=0.5;
             troop1[i][j].expos-=0.5;
             troop1[i][j].edisplay();
-            if(troop1[i][j].expos+troop1[i][j].ew <= 0&&troop1[i][j].isAlive) left1 = true;
+            if(troop1[i][j].expos <= 0&&troop1[i][j].isAlive) left1 = true;
           }
         }
       }   
@@ -62,7 +62,7 @@ class Level_2{
             troop2[i][j].eypos-=0.5;
             troop2[i][j].expos-=0.5;
             troop2[i][j].edisplay();
-            if(troop2[i][j].expos+troop2[i][j].ew <= 0&&troop2[i][j].isAlive) left2 = true;
+            if(troop2[i][j].expos <= 0&&troop2[i][j].isAlive) left2 = true;
           }
         }
       }      
@@ -184,9 +184,9 @@ class Level_2{
     fill(#FF0000);
   //  stroke(#AAAA55);
     rectMode(CENTER);
-    rect((float)playButtonX, (float)playButtonY, (float)playButtonWidth+40.0, (float)playButtonHeight, 10.0);
+    rect((float)playButtonX, (float)3*(height/4), (float)playButtonWidth+40.0, (float)playButtonHeight, 10.0);
     fill(0);
     textSize(32);
-    text("Retry?", width / 2,  4*height / 5);
+    text("Retry?", width / 2,  3*(height/4));
   }   
 }
