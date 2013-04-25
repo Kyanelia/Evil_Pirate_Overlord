@@ -5,6 +5,7 @@ class Level_2{
   boolean left2=true;
   Ship player = new Ship(width/2, 20);
   PImage back = loadImage("background.png");
+  PImage alien2 = loadImage("alien2forrealz.png");
   
   Level_2(){
     troop1 = new Enemy[5][4];
@@ -15,8 +16,10 @@ class Level_2{
   void e2_setup(){
     for(int i=0;i<5;i++){
       for(int j=3;j>=0;j--){
-        troop1[i][j] = new Enemy(i*60, (j+9)*60, true);
+        troop1[i][j] = new Enemy(alien2, i*60, (j+9)*60, true);
         troop1[i][j].edisplay();
+        troop2[i][j] = new Enemy(alien2, (i+6)*60, (j+9)*60, true);
+        troop2[i][j].edisplay();
       }
     }
   }
@@ -42,7 +45,27 @@ class Level_2{
             if(troop1[i][j].expos+troop1[i][j].ew <= 0&&troop1[i][j].isAlive) left1 = true;
           }
         }
-      }        
+      }   
+     if(left2){
+      for(int i=0; i<5; i++){
+        for(int j=0;j<4; j++){
+          troop2[i][j].eypos-=0.5;
+          troop2[i][j].expos+=0.5;
+          troop2[i][j].edisplay();
+          if(troop2[i][j].expos+troop2[i][j].ew >= width&&troop2[i][j].isAlive) left2 = false;
+        }
+      }
+    }
+      else{
+        for(int i=0; i<5; i++){
+          for(int j=0;j<4; j++){
+            troop2[i][j].eypos-=0.5;
+            troop2[i][j].expos-=0.5;
+            troop2[i][j].edisplay();
+            if(troop2[i][j].expos+troop2[i][j].ew <= 0&&troop2[i][j].isAlive) left2 = true;
+          }
+        }
+      }      
     
   }
   
@@ -57,6 +80,15 @@ class Level_2{
              && player.canon[i].cypos-2 < troop1[j][k].eypos+troop1[j][k].eh
              && troop1[j][k].isAlive){
                troop1[j][k].isAlive = false;
+               player.canon[i].fired = false;
+               player.canon[i].cypos = -10;
+             }
+             if(player.canon[i].cxpos+2 > troop2[j][k].expos
+             && player.canon[i].cxpos-2 < troop2[j][k].expos+troop2[j][k].ew
+             && player.canon[i].cypos+2 > troop2[j][k].eypos
+             && player.canon[i].cypos-2 < troop2[j][k].eypos+troop2[j][k].eh
+             && troop2[j][k].isAlive){
+               troop2[j][k].isAlive = false;
                player.canon[i].fired = false;
                player.canon[i].cypos = -10;
              }
@@ -88,6 +120,13 @@ class Level_2{
              || (((player.xpos+player.w) > troop1[i][j].expos) && (player.xpos < troop1[i][j].expos+troop1[i][j].ew)))
              && player.ypos+player.h > troop1[i][j].eypos
              && troop1[i][j].isAlive)
+        {
+             return true;
+        }
+        if(((player.xpos < (troop2[i][j].expos+troop2[i][j].ew) && (player.xpos+player.w > troop2[i][j].expos))
+             || (((player.xpos+player.w) > troop2[i][j].expos) && (player.xpos < troop2[i][j].expos+troop2[i][j].ew)))
+             && player.ypos+player.h > troop2[i][j].eypos
+             && troop2[i][j].isAlive)
         {
              return true;
         }

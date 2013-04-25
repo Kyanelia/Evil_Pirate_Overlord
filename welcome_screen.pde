@@ -51,10 +51,10 @@ void showEndScreen()
   fill(#FF0000);
 //  stroke(#AAAA55);
   rectMode(CENTER);
-  rect((float)playButtonX, (float)(height/4)*3, (float)playButtonWidth, (float)playButtonHeight, 10.0);
+  rect((float)playButtonX, (float)3*(height/4), (float)playButtonWidth, (float)playButtonHeight, 10.0);
   fill(0);
   textSize(32);
-  text("AGAIN?", width / 2, 3*(height / 4));
+  text("AGAIN?", width/2, 3*(height / 4));
 }
 boolean isMouseOverAgain()
 {

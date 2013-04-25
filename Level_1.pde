@@ -2,6 +2,7 @@ class Level_1{
   Enemy[][] enemies;
   Ship player = new Ship(width/2, 20);
   PImage back = loadImage("background.png");
+  PImage alien1 = loadImage("alien1.png");
   
   Level_1(){
     enemies = new Enemy[5][4];
@@ -11,7 +12,7 @@ class Level_1{
   void e1_setup(){
     for(int i=0;i<5;i++){
       for(int j=3;j>=0;j--){
-        enemies[i][j] = new Enemy((i+3)*60, (j+9)*60, true);
+        enemies[i][j] = new Enemy(alien1, (i+3)*60, (j+9)*60, true);
         enemies[i][j].edisplay();
       }
     }
@@ -83,15 +84,23 @@ class Level_1{
     textSize(48);
     fill(#FF0000);
     text("Level 1", width / 2, height / 4);
-   
+    textAlign(CENTER, CENTER);
+    textSize(24);
+    fill(#FF0000);
+    text("Arrows to move", width / 2, (height / 4)+80);
+    textAlign(CENTER, CENTER);
+    textSize(24);
+    fill(#FF0000);
+    text("C to fire", width / 2, (height / 4)+140);
+      
     // Play button
     fill(#FF0000);
   //  stroke(#AAAA55);
     rectMode(CENTER);
-    rect((float)playButtonX, height/2, (float)playButtonWidth+40.0, (float)playButtonHeight, 10.0);
+    rect((float)playButtonX, (float)3*(height/4), (float)playButtonWidth+40.0, (float)playButtonHeight, 10.0);
     fill(0);
     textSize(32);
-    text("READY?", width / 2,  height / 2);
+    text("READY?", width / 2,  3*(height / 4));
   }
   
   boolean level1_start()
@@ -102,7 +111,7 @@ class Level_1{
   int hh = playButtonHeight / 2;
   // Returns true if mouse position is within the bounds of the button
   return mouseX >= playButtonX - hw && mouseX <= playButtonX + hw &&
-      mouseY >= (height/2) - hh && mouseY <= (height/2) + hh;
+      mouseY >= (3*(height/4)) - hh && mouseY <= (3*(height/4)) + hh;
   }
   
   void winScreen1(){
